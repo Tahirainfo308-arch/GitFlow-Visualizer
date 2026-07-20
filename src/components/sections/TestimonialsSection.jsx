@@ -13,29 +13,72 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 sm:py-[100px] lg:py-[120px] relative overflow-hidden">
+    <section
+      className="py-20 sm:py-[100px] lg:py-[120px]"
+      style={{ position: 'relative', overflow: 'hidden' }}
+    >
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+        {/* Section header */}
         <motion.div
-          className="text-center mb-12 sm:mb-16 flex flex-col items-center"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            marginBottom: 'clamp(3rem, 4vw, 4rem)',
+          }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-orange/10 border border-orange/20 text-orange text-[13px] font-medium mb-5">
+          <span
+            style={{
+              display: 'inline-flex',
+              padding: '6px 16px',
+              borderRadius: '9999px',
+              backgroundColor: 'rgba(241,80,47,0.1)',
+              border: '1px solid rgba(241,80,47,0.2)',
+              color: 'var(--c-orange)',
+              fontSize: '13px',
+              fontWeight: 500,
+              marginBottom: '1.25rem',
+            }}
+          >
             Testimonials
           </span>
-          <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-tight tracking-tight mb-4">
+          <h2
+            style={{
+              fontSize: 'clamp(28px, 3.5vw, 44px)',
+              fontWeight: 800,
+              lineHeight: 1.2,
+              letterSpacing: '-0.02em',
+              marginBottom: '1rem',
+            }}
+          >
             Loved by{' '}
-            <span className="text-orange">developers</span>
+            <span style={{ color: 'var(--c-orange)' }}>developers</span>
           </h2>
-          <p className="text-muted text-[16px] sm:text-[18px] max-w-[560px] leading-relaxed">
+          <p
+            style={{
+              color: 'var(--c-muted)',
+              fontSize: 'clamp(16px, 1.5vw, 18px)',
+              maxWidth: '560px',
+              lineHeight: 1.7,
+            }}
+          >
             Join thousands of developers who transformed their Git skills.
           </p>
         </motion.div>
 
+        {/* Testimonials grid: proper auto-fit grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            gap: 'clamp(1.5rem, 2vw, 2rem)',
+          }}
+          className="sm:!grid-cols-2 lg:!grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

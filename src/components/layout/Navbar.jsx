@@ -49,9 +49,17 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-[72px]">
-
-            <Link to="/" className="flex items-center gap-2.5 shrink-0">
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              height: '72px',
+              gap: '1.5rem',
+            }}
+          >
+            {/* GROUP 1: Brand */}
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
               <div className="w-8 h-8 rounded-lg bg-[image:var(--btn-gradient)] flex items-center justify-center shadow-sm">
                 <SiGitbook className="w-4 h-4 text-white" />
               </div>
@@ -60,18 +68,38 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-1.5 bg-surface/60 border border-border/50 rounded-full px-3 py-2">
+            {/* GROUP 2: Nav links pill (desktop only) */}
+            <div
+              className="hidden lg:flex"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '9999px',
+                backgroundColor: 'var(--c-surface)',
+                border: '1px solid var(--c-border)',
+                flexShrink: 0,
+              }}
+            >
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-4 py-2 text-[13px] font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
-                      isActive
-                        ? 'bg-primary/10 text-primary'
-                        : 'text-muted hover:text-text hover:bg-card/60'
-                    }`}
+                    style={{
+                      display: 'inline-block',
+                      padding: '8px 16px',
+                      fontSize: '13px',
+                      fontWeight: 500,
+                      borderRadius: '9999px',
+                      whiteSpace: 'nowrap',
+                      color: isActive ? 'var(--c-primary)' : 'var(--c-muted)',
+                      backgroundColor: isActive ? 'rgba(88,166,255,0.1)' : 'transparent',
+                      transition: 'all 0.2s ease',
+                      textDecoration: 'none',
+                    }}
                   >
                     {link.name}
                   </Link>
@@ -79,11 +107,24 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* GROUP 3: Theme toggle + Auth buttons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
-                className="w-9 h-9 rounded-xl flex items-center justify-center text-muted hover:text-text hover:bg-surface transition-colors duration-200"
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--c-muted)',
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                }}
                 aria-label="Toggle theme"
               >
                 <AnimatePresence mode="wait">
@@ -99,14 +140,26 @@ export default function Navbar() {
                 </AnimatePresence>
               </motion.button>
 
-              <div className="hidden sm:flex items-center gap-3 ml-2">
+              <div className="hidden sm:flex" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Button variant="ghost" size="sm" href="/login">Login</Button>
                 <Button variant="primary" size="sm" href="/register">Get Started</Button>
               </div>
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden w-9 h-9 rounded-xl flex items-center justify-center text-muted hover:text-text hover:bg-surface transition-colors"
+                className="lg:hidden"
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--c-muted)',
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
               >
                 <AnimatePresence mode="wait">
                   {mobileOpen ? (
@@ -125,6 +178,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

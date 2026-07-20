@@ -116,36 +116,86 @@ function StatItem({ value, label }) {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden isolation">
-      <div className="absolute inset-0 bg-grid opacity-40" />
-      <div className="absolute inset-0 bg-radial" />
+    <section
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ position: 'absolute', inset: 0 }} className="bg-grid opacity-40" />
+      <div style={{ position: 'absolute', inset: 0 }} className="bg-radial" />
 
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-
-          <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="max-w-[560px]">
-            <motion.div variants={staggerItem} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[13px] font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
+      <div
+        className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12"
+        style={{ position: 'relative', zIndex: 10, width: '100%', paddingTop: '6rem', paddingBottom: '6rem' }}
+      >
+        <div
+          style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}
+          className="lg:!grid-cols-2"
+        >
+          {/* LEFT: Text */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            style={{ maxWidth: '560px' }}
+          >
+            <motion.div variants={staggerItem} style={{ marginBottom: '1.5rem' }}>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '6px 16px',
+                  borderRadius: '9999px',
+                  backgroundColor: 'rgba(88,166,255,0.1)',
+                  border: '1px solid rgba(88,166,255,0.2)',
+                  color: 'var(--c-primary)',
+                  fontSize: '13px',
+                  fontWeight: 500,
+                }}
+              >
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--c-primary)' }} className="animate-pulse-glow" />
                 Interactive Git Learning Platform
               </span>
             </motion.div>
 
-            <motion.h1 variants={staggerItem} className="text-[36px] sm:text-[48px] lg:text-[64px] font-extrabold leading-[1.05] tracking-tight mb-6">
+            <motion.h1
+              variants={staggerItem}
+              style={{
+                fontSize: 'clamp(36px, 5vw, 64px)',
+                fontWeight: 800,
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+                marginBottom: '1.5rem',
+              }}
+            >
               Learn Git{' '}
               <span className="gradient-text">Visually.</span>
               <br />
-              <span className="text-muted font-semibold text-[22px] sm:text-[30px] lg:text-[38px]">
+              <span style={{ color: 'var(--c-muted)', fontWeight: 600, fontSize: 'clamp(22px, 3vw, 38px)' }}>
                 Master Every Command.
               </span>
             </motion.h1>
 
-            <motion.p variants={staggerItem} className="text-muted text-[16px] sm:text-[18px] max-w-[480px] leading-relaxed mb-10">
+            <motion.p
+              variants={staggerItem}
+              style={{
+                color: 'var(--c-muted)',
+                fontSize: 'clamp(16px, 1.5vw, 18px)',
+                maxWidth: '480px',
+                lineHeight: 1.7,
+                marginBottom: '2.5rem',
+              }}
+            >
               Interactive lessons, real-time branch visualizations, and
               hands-on practice. The modern way to learn Git.
             </motion.p>
 
-            <motion.div variants={staggerItem} className="flex flex-col sm:flex-row items-start gap-4 mb-14">
+            <motion.div variants={staggerItem} className="flex flex-col sm:flex-row items-start gap-4" style={{ marginBottom: '3.5rem' }}>
               <Button variant="primary" size="lg" href="/learn" iconRight={HiOutlineArrowRight}>
                 Start Learning Free
               </Button>
@@ -156,29 +206,40 @@ export default function HeroSection() {
 
             <motion.div variants={staggerItem} className="flex items-center gap-8 sm:gap-10">
               <StatItem value="16+" label="Lessons" />
-              <div className="w-px h-10 bg-border" />
+              <div style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
               <StatItem value="8" label="Challenges" />
-              <div className="w-px h-10 bg-border" />
+              <div style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
               <StatItem value="12" label="Badges" />
-              <div className="w-px h-10 bg-border hidden sm:block" />
+              <div className="hidden sm:block" style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
               <div className="hidden sm:block">
                 <StatItem value="100%" label="Free" />
               </div>
             </motion.div>
           </motion.div>
 
+          {/* RIGHT: Graph + Terminal */}
           <motion.div
-            className="relative w-full max-w-[520px] mx-auto lg:mx-0"
+            style={{ width: '100%', maxWidth: '520px' }}
+            className="mx-auto lg:mx-0"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative rounded-2xl border border-border bg-card p-2 shadow-2xl shadow-black/10">
-              <div className="aspect-[5/4] rounded-xl overflow-hidden bg-bg">
+            <div
+              style={{
+                position: 'relative',
+                borderRadius: '16px',
+                border: '1px solid var(--c-border)',
+                backgroundColor: 'var(--c-card)',
+                padding: '8px',
+                boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+              }}
+            >
+              <div style={{ aspectRatio: '5/4', borderRadius: '12px', overflow: 'hidden', backgroundColor: 'var(--c-bg)' }}>
                 <GitGraphSVG />
               </div>
             </div>
-            <div className="mt-4">
+            <div style={{ marginTop: '16px' }}>
               <TerminalPreview />
             </div>
           </motion.div>

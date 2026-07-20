@@ -120,19 +120,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-poppins);
 }
 
-/* ===== SECTION ISOLATION ===== */
-section {
-  isolation: isolate;
-}
-
 /* ===== UTILITIES ===== */
-.container-xl {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
 .glass {
   background: var(--c-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -159,27 +147,6 @@ section {
 
 .bg-radial {
   background: var(--radial-gradient);
-}
-
-/* ===== NAVBAR UNDERLINE ===== */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--c-primary);
-  border-radius: 1px;
-  transition: width 0.25s ease, left 0.25s ease;
-}
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 70%;
-  left: 15%;
 }
 
 /* ===== ANIMATIONS ===== */

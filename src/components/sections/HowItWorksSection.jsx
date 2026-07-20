@@ -10,29 +10,71 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-20 sm:py-[100px] lg:py-[120px] relative bg-surface/50 overflow-hidden">
+    <section
+      className="py-20 sm:py-[100px] lg:py-[120px] bg-surface/50"
+      style={{ position: 'relative', overflow: 'hidden' }}
+    >
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+        {/* Section header */}
         <motion.div
-          className="text-center mb-12 sm:mb-16 flex flex-col items-center"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            marginBottom: 'clamp(3rem, 4vw, 4rem)',
+          }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-green/10 border border-green/20 text-green text-[13px] font-medium mb-5">
+          <span
+            style={{
+              display: 'inline-flex',
+              padding: '6px 16px',
+              borderRadius: '9999px',
+              backgroundColor: 'rgba(63,185,80,0.1)',
+              border: '1px solid rgba(63,185,80,0.2)',
+              color: 'var(--c-green)',
+              fontSize: '13px',
+              fontWeight: 500,
+              marginBottom: '1.25rem',
+            }}
+          >
             How It Works
           </span>
-          <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-tight tracking-tight mb-4">
+          <h2
+            style={{
+              fontSize: 'clamp(28px, 3.5vw, 44px)',
+              fontWeight: 800,
+              lineHeight: 1.2,
+              letterSpacing: '-0.02em',
+              marginBottom: '1rem',
+            }}
+          >
             Three steps to{' '}
-            <span className="text-green">Git mastery</span>
+            <span style={{ color: 'var(--c-green)' }}>Git mastery</span>
           </h2>
-          <p className="text-muted text-[16px] sm:text-[18px] max-w-[560px] leading-relaxed">
+          <p
+            style={{
+              color: 'var(--c-muted)',
+              fontSize: 'clamp(16px, 1.5vw, 18px)',
+              maxWidth: '560px',
+              lineHeight: 1.7,
+            }}
+          >
             Our proven framework takes you from zero to confident Git user.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            gap: 'clamp(1.5rem, 2vw, 2rem)',
+          }}
+          className="md:!grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
