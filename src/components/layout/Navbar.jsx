@@ -21,6 +21,7 @@ const navLinks = [
   { name: 'Quiz', path: '/quiz' },
   { name: 'Leaderboard', path: '/leaderboard' },
   { name: 'Dashboard', path: '/dashboard' },
+  { name: 'Certificates', path: '/certificates' },
   { name: 'About', path: '/about' },
 ]
 

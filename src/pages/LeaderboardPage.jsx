@@ -1,40 +1,64 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
+import { useProgress } from '../context/ProgressContext'
 import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import { staggerContainer, staggerItem } from '../animations/variants'
-import { HiOutlineTrophy, HiOutlineArrowUp, HiOutlineStar } from 'react-icons/hi2'
+import { HiOutlineTrophy, HiOutlineFire, HiOutlineStar, HiOutlineAcademicCap } from 'react-icons/hi2'
 
-const leaderboard = [
-  { rank: 1, name: 'Sarah Chen', avatar: 'SC', score: 12450, streak: 30, color: 'bg-primary/10 text-primary', badge: 'bg-yellow-500/10 text-yellow-400' },
-  { rank: 2, name: 'Marcus Johnson', avatar: 'MJ', score: 11200, streak: 25, color: 'bg-green/10 text-green', badge: 'bg-gray-300/10 text-gray-300' },
-  { rank: 3, name: 'Emily Park', avatar: 'EP', score: 10800, streak: 22, color: 'bg-orange/10 text-orange', badge: 'bg-orange/10 text-orange' },
-  { rank: 4, name: 'Alex Rivera', avatar: 'AR', score: 9500, streak: 18, color: 'bg-primary/10 text-primary', badge: '' },
-  { rank: 5, name: 'Priya Sharma', avatar: 'PS', score: 8900, streak: 15, color: 'bg-green/10 text-green', badge: '' },
-  { rank: 6, name: 'David Kim', avatar: 'DK', score: 8200, streak: 12, color: 'bg-orange/10 text-orange', badge: '' },
-  { rank: 7, name: 'Lisa Wang', avatar: 'LW', score: 7800, streak: 10, color: 'bg-primary/10 text-primary', badge: '' },
-  { rank: 8, name: 'James Wilson', avatar: 'JW', score: 7200, streak: 9, color: 'bg-green/10 text-green', badge: '' },
-  { rank: 9, name: 'Nina Patel', avatar: 'NP', score: 6800, streak: 8, color: 'bg-orange/10 text-orange', badge: '' },
-  { rank: 10, name: 'Tom Garcia', avatar: 'TG', score: 6500, streak: 7, color: 'bg-primary/10 text-primary', badge: '' },
+const BOT_NAMES = [
+  'Sarah Chen', 'Marcus Johnson', 'Emily Park', 'Alex Rivera',
+  'Priya Sharma', 'David Kim', 'Lisa Wang', 'James Wilson',
+  'Nina Patel', 'Tom Garcia', 'Mia Thompson', 'Raj Patel',
 ]
 
+function generateBotUsers() {
+  const names = [...BOT_NAMES]
+  const shuffled = names.sort(() => 0.5 - Math.random())
+  return shuffled.map((name, i) => ({
+    name,
+    avatar: name.split(' ').map(n => n[0]).join(''),
+    xp: Math.floor(Math.random() * 800) + 200,
+    streak: Math.floor(Math.random() * 20) + 1,
+    badges: Math.floor(Math.random() * 8) + 1,
+    lessons: Math.floor(Math.random() * 12) + 2,
+    isBot: true,
+    color: ['bg-primary/10 text-primary', 'bg-green/10 text-green', 'bg-orange/10 text-orange'][i % 3],
+  }))
+}
+
 export default function LeaderboardPage() {
+  const { progress } = useProgress()
+
+  const allUsers = useMemo(() => {
+    const bots = generateBotUsers()
+    const me = {
+      name: 'You',
+      avatar: 'YO',
+      xp: progress.xp,
+      streak: progress.streak,
+      badges: progress.earnedBadges.length,
+      lessons: progress.completedLessons.length,
+      isBot: false,
+      color: 'bg-primary/10 text-primary',
+      isYou: true,
+    }
+    return [...bots, me].sort((a, b) => b.xp - a.xp)
+  }, [progress])
+
+  const myRank = allUsers.findIndex(u => u.isYou) + 1
+
   return (
     <div className="min-h-screen">
       <section className="py-20 lg:py-28 bg-grid bg-radial relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
             <Badge color="yellow" dot>Leaderboard</Badge>
             <h1 className="font-poppins text-4xl sm:text-5xl font-bold mt-4 mb-4">
               Top <span className="text-yellow-400">Git Masters</span>
             </h1>
             <p className="text-muted text-lg">
-              The most dedicated learners on the platform. Climb the ranks
-              by completing lessons and challenges.
+              Earn XP by completing lessons, quizzes, and challenges to climb the ranks.
             </p>
           </motion.div>
         </div>
@@ -42,30 +66,38 @@ export default function LeaderboardPage() {
 
       <section className="py-16 lg:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="space-y-3"
-          >
-            {leaderboard.map((user) => (
-              <motion.div key={user.rank} variants={staggerItem}>
+          {myRank > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 p-4 rounded-xl border border-primary/20 bg-primary/5"
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-mono text-primary">#{myRank}</span>
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary">YO</div>
+                <div className="flex-1">
+                  <p className="font-medium text-sm">Your Rank</p>
+                  <p className="text-xs text-muted">{progress.xp.toLocaleString()} XP &middot; Level {progress.level}</p>
+                </div>
+                <Badge color="blue" size="sm">#{myRank} of {allUsers.length}</Badge>
+              </div>
+            </motion.div>
+          )}
+
+          <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="space-y-2">
+            {allUsers.map((user, index) => (
+              <motion.div key={user.name + index} variants={staggerItem}>
                 <Card
-                  padding="p-4 sm:p-5"
-                  className={`flex items-center gap-4 ${
-                    user.rank <= 3 ? 'border-yellow-500/10' : ''
-                  }`}
+                  padding="p-3 sm:p-4"
+                  className={`flex items-center gap-3 sm:gap-4 ${
+                    user.isYou ? 'border-primary/30 bg-primary/5' : ''
+                  } ${index < 3 ? 'border-yellow-500/10' : ''}`}
                 >
-                  <div className="w-8 text-center">
-                    {user.rank <= 3 ? (
-                      <HiOutlineTrophy className={`w-5 h-5 mx-auto ${
-                        user.rank === 1 ? 'text-yellow-500' :
-                        user.rank === 2 ? 'text-gray-300' :
-                        'text-orange'
-                      }`} />
-                    ) : (
-                      <span className="text-sm font-mono text-muted">#{user.rank}</span>
-                    )}
+                  <div className="w-8 text-center flex-shrink-0">
+                    {index === 0 ? <HiOutlineTrophy className="w-5 h-5 text-yellow-500 mx-auto" /> :
+                     index === 1 ? <HiOutlineTrophy className="w-5 h-5 text-gray-400 mx-auto" /> :
+                     index === 2 ? <HiOutlineTrophy className="w-5 h-5 text-orange mx-auto" /> :
+                     <span className="text-sm font-mono text-muted">#{index + 1}</span>}
                   </div>
 
                   <div className={`w-10 h-10 rounded-full ${user.color} flex items-center justify-center text-sm font-bold flex-shrink-0`}>
@@ -75,18 +107,24 @@ export default function LeaderboardPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <p className="font-medium text-sm truncate">{user.name}</p>
-                      {user.badge && (
-                        <Badge color={user.rank === 1 ? 'orange' : user.rank === 2 ? 'muted' : 'orange'} size="xs">
-                          {user.rank === 1 ? 'Gold' : user.rank === 2 ? 'Silver' : 'Bronze'}
-                        </Badge>
-                      )}
+                      {user.isYou && <Badge color="blue" size="xs">You</Badge>}
                     </div>
-                    <p className="text-xs text-muted">{user.streak} day streak</p>
+                    <div className="flex items-center gap-3 mt-0.5">
+                      <span className="text-[11px] text-muted flex items-center gap-1">
+                        <HiOutlineFire className="w-3 h-3 text-orange" />{user.streak}
+                      </span>
+                      <span className="text-[11px] text-muted flex items-center gap-1">
+                        <HiOutlineAcademicCap className="w-3 h-3" />{user.badges}
+                      </span>
+                      <span className="text-[11px] text-muted flex items-center gap-1">
+                        <HiOutlineStar className="w-3 h-3 text-yellow-500" />{user.lessons} lessons
+                      </span>
+                    </div>
                   </div>
 
                   <div className="text-right flex-shrink-0">
-                    <p className="font-mono font-bold text-primary">{user.score.toLocaleString()}</p>
-                    <p className="text-xs text-muted">points</p>
+                    <p className="font-mono font-bold text-primary text-sm">{user.xp.toLocaleString()}</p>
+                    <p className="text-[10px] text-muted">XP</p>
                   </div>
                 </Card>
               </motion.div>

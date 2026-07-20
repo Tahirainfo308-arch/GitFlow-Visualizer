@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import { ToastProvider } from './context/ToastContext'
+import { ProgressProvider } from './context/ProgressContext'
 import MainLayout from './components/layout/MainLayout'
 import HomePage from './pages/HomePage'
 import LearnPage from './pages/LearnPage'
@@ -12,27 +13,31 @@ import DashboardPage from './pages/DashboardPage'
 import AboutPage from './pages/AboutPage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import CertificatesPage from './pages/CertificatesPage'
 
 export default function App() {
   return (
     <ThemeProvider>
       <ToastProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/learn" element={<LearnPage />} />
-              <Route path="/playground" element={<PlaygroundPage />} />
-              <Route path="/challenges" element={<ChallengesPage />} />
-              <Route path="/quiz" element={<QuizPage />} />
-              <Route path="/leaderboard" element={<LeaderboardPage />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/about" element={<AboutPage />} />
-            </Route>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Routes>
-        </BrowserRouter>
+        <ProgressProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<MainLayout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/learn" element={<LearnPage />} />
+                <Route path="/playground" element={<PlaygroundPage />} />
+                <Route path="/challenges" element={<ChallengesPage />} />
+                <Route path="/quiz" element={<QuizPage />} />
+                <Route path="/leaderboard" element={<LeaderboardPage />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/certificates" element={<CertificatesPage />} />
+                <Route path="/about" element={<AboutPage />} />
+              </Route>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+          </BrowserRouter>
+        </ProgressProvider>
       </ToastProvider>
     </ThemeProvider>
   )

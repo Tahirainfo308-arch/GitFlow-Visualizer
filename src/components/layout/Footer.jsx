@@ -8,6 +8,7 @@ const footerLinks = {
     { name: 'Pricing', path: '/#pricing' },
     { name: 'Playground', path: '/playground' },
     { name: 'Challenges', path: '/challenges' },
+    { name: 'Certificates', path: '/certificates' },
   ],
   Learn: [
     { name: 'Documentation', path: '/learn' },
