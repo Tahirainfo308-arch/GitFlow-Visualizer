@@ -115,7 +115,7 @@ export default function PlaygroundPage() {
               <span className="text-sm font-medium">Git Graph</span>
               <span className="text-xs text-muted ml-auto font-mono">Scroll to zoom &middot; Drag to pan</span>
             </div>
-            <div className="flex-1 bg-[#0a0e14]">
+            <div className="flex-1 bg-surface">
               <GitGraph graph={graphLayout} onNodeClick={handleNodeClick} />
             </div>
           </div>

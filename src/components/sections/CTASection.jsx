@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
 import Button from '../ui/Button'
-import {
-  HiOutlineArrowRight,
-} from 'react-icons/hi2'
+import { HiOutlineArrowRight } from 'react-icons/hi2'
 
 export default function CTASection() {
   return (
@@ -23,7 +21,7 @@ export default function CTASection() {
               Ready to master{' '}
               <span className="gradient-text">Git?</span>
             </h2>
-            <p className="text-muted text-base sm:text-lg max-w-xl mx-auto mb-10">
+            <p className="text-muted text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
               Join thousands of developers who are learning Git the
               smart way. Start your journey today — it&apos;s free.
             </p>

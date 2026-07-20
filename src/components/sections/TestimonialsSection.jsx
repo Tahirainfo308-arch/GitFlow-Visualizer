@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion'
 import Card from '../ui/Card'
-import {
-  staggerContainer,
-  staggerItem,
-} from '../../animations/variants'
+import { staggerContainer, staggerItem } from '../../animations/variants'
 import { HiStar } from 'react-icons/hi2'
 
 const testimonials = [
@@ -11,8 +8,7 @@ const testimonials = [
     name: 'Sarah Chen',
     role: 'Senior Developer at Stripe',
     avatar: 'SC',
-    content:
-      'GitFlow Visualizer made me realize how many Git concepts I was using but never truly understood. The visual branch graphs are game-changing.',
+    content: 'GitFlow Visualizer made me realize how many Git concepts I was using but never truly understood. The visual branch graphs are game-changing.',
     rating: 5,
     color: 'bg-primary/10 text-primary',
   },
@@ -20,8 +16,7 @@ const testimonials = [
     name: 'Marcus Johnson',
     role: 'Tech Lead at Vercel',
     avatar: 'MJ',
-    content:
-      'I recommend this to every junior developer on my team. The interactive playground is the best way to learn Git without the fear of breaking things.',
+    content: 'I recommend this to every junior developer on my team. The interactive playground is the best way to learn Git without the fear of breaking things.',
     rating: 5,
     color: 'bg-green/10 text-green',
   },
@@ -29,8 +24,7 @@ const testimonials = [
     name: 'Emily Park',
     role: 'DevOps Engineer at GitHub',
     avatar: 'EP',
-    content:
-      'The challenges section pushed my Git skills to the next level. Rebase conflicts that used to scare me are now second nature.',
+    content: 'The challenges section pushed my Git skills to the next level. Rebase conflicts that used to scare me are now second nature.',
     rating: 5,
     color: 'bg-orange/10 text-orange',
   },
@@ -38,8 +32,7 @@ const testimonials = [
     name: 'Alex Rivera',
     role: 'Full Stack Developer',
     avatar: 'AR',
-    content:
-      'Finally a Git learning platform that looks as good as it works. The UI is stunning and the lessons are incredibly well-structured.',
+    content: 'Finally a Git learning platform that looks as good as it works. The UI is stunning and the lessons are incredibly well-structured.',
     rating: 5,
     color: 'bg-primary/10 text-primary',
   },
@@ -47,8 +40,7 @@ const testimonials = [
     name: 'Priya Sharma',
     role: 'Open Source Contributor',
     avatar: 'PS',
-    content:
-      'The leaderboard and challenges make learning Git competitive and fun. I went from Git beginner to confidently managing complex workflows.',
+    content: 'The leaderboard and challenges make learning Git competitive and fun. I went from Git beginner to confidently managing complex workflows.',
     rating: 5,
     color: 'bg-green/10 text-green',
   },
@@ -56,8 +48,7 @@ const testimonials = [
     name: 'David Kim',
     role: 'Frontend Engineer at Linear',
     avatar: 'DK',
-    content:
-      'Best Git learning experience out there. Period. The visual approach to explaining rebase vs merge finally made it click for me.',
+    content: 'Best Git learning experience out there. Period. The visual approach to explaining rebase vs merge finally made it click for me.',
     rating: 5,
     color: 'bg-orange/10 text-orange',
   },
@@ -65,7 +56,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 lg:py-32 relative bg-card/30">
+    <section className="py-24 lg:py-32 relative bg-surface/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -81,7 +72,7 @@ export default function TestimonialsSection() {
             Loved by{' '}
             <span className="text-orange">developers</span>
           </h2>
-          <p className="text-muted text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Join thousands of developers who have transformed their Git
             skills with GitFlow Visualizer.
           </p>
@@ -106,13 +97,11 @@ export default function TestimonialsSection() {
                   &ldquo;{testimonial.content}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div
-                    className={`w-9 h-9 rounded-full ${testimonial.color} flex items-center justify-center text-xs font-bold`}
-                  >
+                  <div className={`w-10 h-10 rounded-full ${testimonial.color} flex items-center justify-center text-xs font-bold`}>
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <p className="text-sm font-medium">{testimonial.name}</p>
+                    <p className="text-sm font-semibold">{testimonial.name}</p>
                     <p className="text-xs text-muted">{testimonial.role}</p>
                   </div>
                 </div>

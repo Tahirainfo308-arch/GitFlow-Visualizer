@@ -137,7 +137,7 @@ export default function Terminal({ onCommand, currentBranch, headHash, history }
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#0a0e14]">
+    <div className="flex flex-col h-full bg-surface">
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-card/50">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red/80" />

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { cardHover } from '../../animations/variants'
 
 export default function Card({
   children,
@@ -10,9 +9,9 @@ export default function Card({
   ...props
 }) {
   const classes = [
-    'bg-card border border-border rounded-xl',
+    'bg-card border border-border rounded-2xl',
     padding,
-    hover && 'transition-colors duration-300 hover:border-muted',
+    hover && 'transition-all duration-300 hover:border-muted/60 hover:shadow-lg hover:shadow-black/[0.04]',
     glow && 'glow-primary',
     className,
   ]
@@ -23,9 +22,8 @@ export default function Card({
     return (
       <motion.div
         className={classes}
-        initial="rest"
-        whileHover="hover"
-        variants={cardHover}
+        whileHover={{ y: -4, scale: 1.01 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
         {...props}
       >
         {children}

@@ -32,7 +32,7 @@ function CertificateCard({ module, earned, progress }) {
           {earned ? (
             <div className="border-t border-primary/20 pt-4 mt-4">
               <Badge color="green" dot size="sm">Certificate Earned</Badge>
-              <div className="mt-3 p-3 rounded-xl bg-[#0a0e14] border border-border">
+              <div className="mt-3 p-3 rounded-xl bg-surface border border-border">
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <HiOutlineAcademicCap className="w-4 h-4 text-primary" />
                   <span className="font-poppins font-bold text-sm gradient-text">Certificate of Completion</span>

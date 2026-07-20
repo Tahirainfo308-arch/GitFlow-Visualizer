@@ -5,22 +5,20 @@ import { FiGithub, FiTwitter, FiLinkedin, FiYoutube } from 'react-icons/fi'
 const footerLinks = {
   Product: [
     { name: 'Features', path: '/#features' },
-    { name: 'Pricing', path: '/#pricing' },
     { name: 'Playground', path: '/playground' },
     { name: 'Challenges', path: '/challenges' },
     { name: 'Certificates', path: '/certificates' },
   ],
   Learn: [
-    { name: 'Documentation', path: '/learn' },
-    { name: 'Tutorials', path: '/learn' },
-    { name: 'Blog', path: '/learn' },
-    { name: 'Community', path: '/about' },
+    { name: 'Lessons', path: '/learn' },
+    { name: 'Quiz', path: '/quiz' },
+    { name: 'Dashboard', path: '/dashboard' },
+    { name: 'Leaderboard', path: '/leaderboard' },
   ],
   Company: [
     { name: 'About', path: '/about' },
-    { name: 'Careers', path: '/about' },
-    { name: 'Contact', path: '/about' },
-    { name: 'Privacy', path: '/about' },
+    { name: 'Login', path: '/login' },
+    { name: 'Register', path: '/register' },
   ],
 }
 
@@ -33,13 +31,13 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
+    <footer className="border-t border-border bg-surface/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 lg:py-16">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-green flex items-center justify-center">
-                <SiGitbook className="w-4 h-4 text-bg" />
+              <div className="w-8 h-8 rounded-lg bg-[image:var(--btn-gradient)] flex items-center justify-center">
+                <SiGitbook className="w-4 h-4 text-white" />
               </div>
               <span className="font-poppins font-bold text-lg">
                 GitFlow <span className="text-primary">Visualizer</span>
@@ -55,7 +53,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="p-2 rounded-lg text-muted hover:text-text hover:bg-card-hover transition-colors"
+                  className="p-2 rounded-xl text-muted hover:text-text hover:bg-card transition-colors duration-200"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -65,13 +63,13 @@ export default function Footer() {
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-sm font-semibold text-text mb-4">{category}</h3>
+              <h3 className="text-sm font-bold text-text mb-4">{category}</h3>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.path}
-                      className="text-sm text-muted hover:text-text transition-colors"
+                      className="text-sm text-muted hover:text-text transition-colors duration-200"
                     >
                       {link.name}
                     </Link>
@@ -92,9 +90,6 @@ export default function Footer() {
             </a>
             <a href="#" className="text-xs text-muted hover:text-text transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-xs text-muted hover:text-text transition-colors">
-              Cookie Policy
             </a>
           </div>
         </div>

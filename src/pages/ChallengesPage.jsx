@@ -127,7 +127,7 @@ export default function ChallengesPage() {
               ))}
             </div>
             {challengeSteps[activeChallenge.id] ? (
-              <div className="bg-[#0a0e14] border border-border rounded-xl p-5 mb-6">
+              <div className="bg-surface border border-border rounded-xl p-5 mb-6">
                 <p className="text-sm text-text mb-3">
                   Step {challengeStep + 1}: {challengeSteps[activeChallenge.id][challengeStep]?.instruction}
                 </p>
@@ -137,7 +137,7 @@ export default function ChallengesPage() {
                 <p className="text-xs text-muted mt-2">{challengeSteps[activeChallenge.id][challengeStep]?.hint}</p>
               </div>
             ) : (
-              <div className="bg-[#0a0e14] border border-border rounded-xl p-5 mb-6">
+              <div className="bg-surface border border-border rounded-xl p-5 mb-6">
                 <p className="text-sm text-muted text-center">Complete this challenge using your Git knowledge.</p>
               </div>
             )}

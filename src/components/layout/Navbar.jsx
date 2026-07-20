@@ -52,48 +52,70 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-bg/80 backdrop-blur-xl border-b border-border shadow-lg shadow-black/10'
+            ? 'glass border-b border-glass-border shadow-lg shadow-black/5'
             : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-green flex items-center justify-center">
-                <SiGitbook className="w-4 h-4 text-bg" />
+              <div className="w-8 h-8 rounded-lg bg-[image:var(--btn-gradient)] flex items-center justify-center shadow-sm">
+                <SiGitbook className="w-4 h-4 text-white" />
               </div>
               <span className="font-poppins font-bold text-lg tracking-tight hidden sm:block">
                 GitFlow <span className="text-primary">Visualizer</span>
               </span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    location.pathname === link.path
-                      ? 'text-primary bg-primary/10'
-                      : 'text-muted hover:text-text hover:bg-card'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <div className="hidden lg:flex items-center gap-0.5">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`nav-link px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                      isActive
+                        ? 'text-primary bg-primary/10 active'
+                        : 'text-muted hover:text-text hover:bg-card/50'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              })}
             </div>
 
             <div className="flex items-center gap-2">
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
-                className="p-2 rounded-lg text-muted hover:text-text hover:bg-card transition-colors"
+                className="p-2 rounded-xl text-muted hover:text-text hover:bg-card transition-colors duration-200"
+                aria-label="Toggle theme"
               >
-                {isDark ? (
-                  <HiOutlineSun className="w-5 h-5" />
-                ) : (
-                  <HiOutlineMoon className="w-5 h-5" />
-                )}
+                <AnimatePresence mode="wait">
+                  {isDark ? (
+                    <motion.div
+                      key="sun"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <HiOutlineSun className="w-5 h-5" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="moon"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <HiOutlineMoon className="w-5 h-5" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.button>
 
               <div className="hidden sm:flex items-center gap-2">
@@ -107,13 +129,20 @@ export default function Navbar() {
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-lg text-muted hover:text-text hover:bg-card transition-colors"
+                className="lg:hidden p-2 rounded-xl text-muted hover:text-text hover:bg-card transition-colors"
+                aria-label="Toggle menu"
               >
-                {mobileOpen ? (
-                  <HiXMark className="w-5 h-5" />
-                ) : (
-                  <HiBars3 className="w-5 h-5" />
-                )}
+                <AnimatePresence mode="wait">
+                  {mobileOpen ? (
+                    <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} exit={{ rotate: 90 }} transition={{ duration: 0.15 }}>
+                      <HiXMark className="w-5 h-5" />
+                    </motion.div>
+                  ) : (
+                    <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} exit={{ rotate: -90 }} transition={{ duration: 0.15 }}>
+                      <HiBars3 className="w-5 h-5" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </button>
             </div>
           </div>
@@ -137,7 +166,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute right-0 top-0 bottom-0 w-80 bg-card border-l border-border p-6 flex flex-col"
+              className="absolute right-0 top-0 bottom-0 w-80 bg-card border-l border-border p-6 flex flex-col shadow-2xl"
             >
               <div className="flex items-center justify-between mb-8">
                 <span className="font-poppins font-bold text-lg">
@@ -145,7 +174,7 @@ export default function Navbar() {
                 </span>
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-1 rounded-lg text-muted hover:text-text hover:bg-card-hover transition-colors"
+                  className="p-1.5 rounded-lg text-muted hover:text-text hover:bg-card-hover transition-colors"
                 >
                   <HiXMark className="w-5 h-5" />
                 </button>
@@ -156,7 +185,7 @@ export default function Navbar() {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                    className={`px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
                       location.pathname === link.path
                         ? 'text-primary bg-primary/10'
                         : 'text-muted hover:text-text hover:bg-card-hover'

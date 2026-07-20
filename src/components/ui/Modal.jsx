@@ -38,10 +38,10 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center justify-between p-6 border-b border-border">
-              <h2 className="text-lg font-semibold">{title}</h2>
+              <h2 className="text-lg font-bold">{title}</h2>
               <button
                 onClick={onClose}
-                className="p-1 rounded-lg text-muted hover:text-text hover:bg-card-hover transition-colors"
+                className="p-1.5 rounded-lg text-muted hover:text-text hover:bg-card-hover transition-colors"
               >
                 <HiXMark className="w-5 h-5" />
               </button>

@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion'
 import Card from '../ui/Card'
-import {
-  staggerContainer,
-  staggerItem,
-} from '../../animations/variants'
+import { staggerContainer, staggerItem } from '../../animations/variants'
 import {
   HiOutlineEye,
   HiOutlineCommandLine,
@@ -17,56 +14,44 @@ const features = [
   {
     icon: HiOutlineEye,
     title: 'Visual Branch Graphs',
-    description:
-      'Watch branches, merges, and commits come alive with real-time animated visualizations.',
+    description: 'Watch branches, merges, and commits come alive with real-time animated visualizations.',
     color: 'text-primary',
     bg: 'bg-primary/10',
-    border: 'border-primary/20',
   },
   {
     icon: HiOutlineCommandLine,
     title: 'Interactive Terminal',
-    description:
-      'Practice Git commands in a realistic terminal environment right in your browser.',
+    description: 'Practice Git commands in a realistic terminal environment right in your browser.',
     color: 'text-green',
     bg: 'bg-green/10',
-    border: 'border-green/20',
   },
   {
     icon: HiOutlineAcademicCap,
     title: 'Structured Lessons',
-    description:
-      'From basics to advanced workflows. Curated paths that build mastery step by step.',
+    description: 'From basics to advanced workflows. Curated paths that build mastery step by step.',
     color: 'text-orange',
     bg: 'bg-orange/10',
-    border: 'border-orange/20',
   },
   {
     icon: HiOutlineBolt,
     title: 'Instant Feedback',
-    description:
-      'Get immediate feedback on your commands. Understand mistakes before they become habits.',
+    description: 'Get immediate feedback on your commands. Understand mistakes before they become habits.',
     color: 'text-primary',
     bg: 'bg-primary/10',
-    border: 'border-primary/20',
   },
   {
     icon: HiOutlineUsers,
     title: 'Community Challenges',
-    description:
-      'Compete with developers worldwide. Solve real-world Git scenarios and climb the leaderboard.',
+    description: 'Compete with developers worldwide. Solve real-world Git scenarios and climb the leaderboard.',
     color: 'text-green',
     bg: 'bg-green/10',
-    border: 'border-green/20',
   },
   {
     icon: HiOutlineChartBar,
     title: 'Progress Tracking',
-    description:
-      'Track your learning journey with detailed analytics and achievement milestones.',
+    description: 'Track your learning journey with detailed analytics and achievement milestones.',
     color: 'text-orange',
     bg: 'bg-orange/10',
-    border: 'border-orange/20',
   },
 ]
 
@@ -88,7 +73,7 @@ export default function FeaturesSection() {
             Everything you need to{' '}
             <span className="gradient-text">master Git</span>
           </h2>
-          <p className="text-muted text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             A complete learning platform designed to make you proficient
             with Git through visual, interactive experiences.
           </p>
@@ -105,11 +90,11 @@ export default function FeaturesSection() {
             <motion.div key={feature.title} variants={staggerItem}>
               <Card className="h-full group" padding="p-8">
                 <div
-                  className={`w-12 h-12 rounded-xl ${feature.bg} border ${feature.border} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-14 h-14 rounded-2xl ${feature.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <feature.icon className={`w-6 h-6 ${feature.color}`} />
+                  <feature.icon className={`w-7 h-7 ${feature.color}`} />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
+                <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
                 <p className="text-muted text-sm leading-relaxed">
                   {feature.description}
                 </p>

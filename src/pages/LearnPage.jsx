@@ -91,7 +91,7 @@ function LessonViewer({ lesson, module, onClose }) {
                   return <h3 className="font-poppins text-xl font-semibold mb-3 mt-6">{block.value}</h3>
                 case 'code':
                   return (
-                    <pre className="bg-[#0a0e14] border border-border rounded-xl p-5 overflow-x-auto font-mono text-sm text-green leading-relaxed">
+                    <pre className="bg-surface border border-border rounded-xl p-5 overflow-x-auto font-mono text-sm text-green leading-relaxed">
                       <code>{block.value}</code>
                     </pre>
                   )
