@@ -4,7 +4,7 @@ import { HiOutlineArrowRight } from 'react-icons/hi2'
 
 export default function CTASection() {
   return (
-    <section id="cta" className="py-20 sm:py-[100px] lg:py-[120px] relative">
+    <section id="cta" className="py-20 sm:py-[100px] lg:py-[120px] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
         <motion.div
           className="relative rounded-[28px] sm:rounded-[32px] border border-border bg-card overflow-hidden"

@@ -13,10 +13,10 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 sm:py-[100px] lg:py-[120px] relative">
+    <section className="py-20 sm:py-[100px] lg:py-[120px] relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
         <motion.div
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-12 sm:mb-16 flex flex-col items-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
             Loved by{' '}
             <span className="text-orange">developers</span>
           </h2>
-          <p className="text-muted text-[16px] sm:text-[18px] max-w-[560px] mx-auto leading-relaxed">
+          <p className="text-muted text-[16px] sm:text-[18px] max-w-[560px] leading-relaxed">
             Join thousands of developers who transformed their Git skills.
           </p>
         </motion.div>

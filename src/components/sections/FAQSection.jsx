@@ -40,9 +40,9 @@ function FAQItem({ faq }) {
 
 export default function FAQSection() {
   return (
-    <section className="py-20 sm:py-[100px] lg:py-[120px] relative bg-surface/50">
+    <section className="py-20 sm:py-[100px] lg:py-[120px] relative bg-surface/50 overflow-hidden">
       <div className="max-w-[680px] mx-auto px-5 sm:px-8">
-        <motion.div className="text-center mb-12 sm:mb-16" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.6 }}>
+        <motion.div className="text-center mb-12 sm:mb-16 flex flex-col items-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} transition={{ duration: 0.6 }}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[13px] font-medium mb-5">FAQ</span>
           <h2 className="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-tight tracking-tight mb-4">
             Frequently asked <span className="gradient-text">questions</span>

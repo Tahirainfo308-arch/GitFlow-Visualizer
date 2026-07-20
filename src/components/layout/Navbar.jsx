@@ -60,14 +60,14 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-1 bg-surface/60 border border-border/50 rounded-full px-2 py-1.5">
+            <div className="hidden lg:flex items-center gap-1.5 bg-surface/60 border border-border/50 rounded-full px-3 py-2">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path
                 return (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`px-4 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200 ${
+                    className={`px-4 py-2 text-[13px] font-medium rounded-full transition-all duration-200 whitespace-nowrap ${
                       isActive
                         ? 'bg-primary/10 text-primary'
                         : 'text-muted hover:text-text hover:bg-card/60'
@@ -99,7 +99,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </motion.button>
 
-              <div className="hidden sm:flex items-center gap-2">
+              <div className="hidden sm:flex items-center gap-3 ml-2">
                 <Button variant="ghost" size="sm" href="/login">Login</Button>
                 <Button variant="primary" size="sm" href="/register">Get Started</Button>
               </div>
