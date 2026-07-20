@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 
 const variants = {
   primary:
-    'bg-[image:var(--btn-gradient)] text-white shadow-md hover:shadow-lg hover:shadow-primary/20',
+    'bg-[image:var(--btn-gradient)] text-white shadow-md hover:shadow-xl hover:shadow-primary/20',
   secondary:
     'bg-card border border-border text-text hover:bg-card-hover hover:border-muted shadow-sm',
   ghost:
-    'bg-transparent text-muted hover:text-text hover:bg-card',
+    'bg-transparent text-muted hover:text-text hover:bg-surface',
   danger:
     'bg-red/10 text-red border border-red/20 hover:bg-red/20 shadow-sm',
   success:
@@ -16,10 +16,10 @@ const variants = {
 }
 
 const sizes = {
-  sm: 'px-3.5 py-1.5 text-xs rounded-lg gap-1.5',
-  md: 'px-5 py-2.5 text-sm rounded-xl gap-2',
-  lg: 'px-7 py-3.5 text-base rounded-xl gap-2.5',
-  xl: 'px-9 py-4 text-lg rounded-xl gap-2.5',
+  sm: 'px-4 py-2 text-[13px] rounded-lg gap-1.5',
+  md: 'px-5 py-2.5 text-[14px] rounded-xl gap-2',
+  lg: 'px-7 py-3.5 text-[16px] font-semibold rounded-xl gap-2.5',
+  xl: 'px-9 py-4 text-[17px] font-semibold rounded-xl gap-2.5',
 }
 
 export default function Button({
@@ -37,7 +37,7 @@ export default function Button({
   ...props
 }) {
   const classes = [
-    'inline-flex items-center justify-center font-medium cursor-pointer select-none whitespace-nowrap',
+    'inline-flex items-center justify-center font-semibold cursor-pointer select-none whitespace-nowrap',
     'transition-all duration-200 ease-out',
     'focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-bg',
     disabled && 'opacity-50 cursor-not-allowed',
@@ -57,9 +57,9 @@ export default function Button({
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
         </svg>
       )}
-      {!loading && Icon && <Icon className="w-4 h-4" />}
+      {!loading && Icon && <Icon className="w-[16px] h-[16px]" />}
       {children}
-      {typeof IconRight === 'function' && <IconRight className="w-4 h-4" />}
+      {typeof IconRight === 'function' && <IconRight className="w-[16px] h-[16px]" />}
     </>
   )
 

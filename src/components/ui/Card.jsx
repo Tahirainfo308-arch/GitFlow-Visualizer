@@ -9,9 +9,9 @@ export default function Card({
   ...props
 }) {
   const classes = [
-    'bg-card border border-border rounded-2xl',
+    'bg-card border border-border rounded-3xl',
     padding,
-    hover && 'transition-all duration-300 hover:border-muted/60 hover:shadow-lg hover:shadow-black/[0.04]',
+    hover && 'transition-all duration-300 hover:border-muted/60 hover:shadow-xl',
     glow && 'glow-primary',
     className,
   ]
@@ -22,8 +22,8 @@ export default function Card({
     return (
       <motion.div
         className={classes}
-        whileHover={{ y: -4, scale: 1.01 }}
-        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
         {...props}
       >
         {children}

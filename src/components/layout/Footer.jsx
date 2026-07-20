@@ -31,19 +31,19 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-surface/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 lg:py-16">
+    <footer className="border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-16">
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[image:var(--btn-gradient)] flex items-center justify-center">
+            <Link to="/" className="flex items-center gap-2.5 mb-5">
+              <div className="w-8 h-8 rounded-lg bg-[image:var(--btn-gradient)] flex items-center justify-center shadow-sm">
                 <SiGitbook className="w-4 h-4 text-white" />
               </div>
-              <span className="font-poppins font-bold text-lg">
-                GitFlow <span className="text-primary">Visualizer</span>
+              <span className="font-extrabold text-[17px] tracking-tight">
+                GitFlow<span className="text-primary ml-1">Visualizer</span>
               </span>
             </Link>
-            <p className="text-sm text-muted leading-relaxed mb-6 max-w-xs">
+            <p className="text-sm text-muted leading-relaxed mb-6 max-w-[260px]">
               Master Git visually. Interactive lessons, real-time
               visualizations, and hands-on practice.
             </p>
@@ -53,7 +53,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="p-2 rounded-xl text-muted hover:text-text hover:bg-card transition-colors duration-200"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center text-muted hover:text-text hover:bg-surface transition-colors duration-200"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -63,8 +63,8 @@ export default function Footer() {
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-sm font-bold text-text mb-4">{category}</h3>
-              <ul className="space-y-2.5">
+              <h3 className="text-sm font-bold mb-5">{category}</h3>
+              <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -84,13 +84,9 @@ export default function Footer() {
           <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} GitFlow Visualizer. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="text-xs text-muted hover:text-text transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-xs text-muted hover:text-text transition-colors">
-              Privacy Policy
-            </a>
+          <div className="flex items-center gap-5">
+            <a href="#" className="text-xs text-muted hover:text-text transition-colors">Terms</a>
+            <a href="#" className="text-xs text-muted hover:text-text transition-colors">Privacy</a>
           </div>
         </div>
       </div>
