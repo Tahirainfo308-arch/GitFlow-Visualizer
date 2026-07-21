@@ -195,3 +195,43 @@ h1, h2, h3, h4, h5, h6 {
   0%, 100% { box-shadow: 0 0 12px rgba(9, 105, 218, 0.15); }
   50% { box-shadow: 0 0 24px rgba(9, 105, 218, 0.25); }
 }
+
+/* ===== FORCE LAYOUT FIXES ===== */
+
+/* 1. Ensure navbar stays on top (kept as fixed — position:relative would destroy sticky nav) */
+header, nav {
+  z-index: 100 !important;
+}
+
+/* 2. Fix all badges overlapping headings */
+[class*="badge"], .badge, .pill, span[class*="Learning"] {
+  position: static !important;
+  display: inline-block !important;
+  margin-bottom: 8px !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+/* 3. Center the main page wrapper */
+body > div, main {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. Fix card grid overlapping */
+.grid, [class*="grid"], [class*="card"] {
+  position: relative !important;
+}
+
+/* 5. Allow hero sections to break out of the 1200px main wrapper */
+.break-out {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: calc(-50vw);
+  margin-right: calc(-50vw);
+}

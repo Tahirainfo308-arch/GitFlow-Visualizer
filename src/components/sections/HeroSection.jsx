@@ -117,9 +117,10 @@ function StatItem({ value, label }) {
 export default function HeroSection() {
   return (
     <section
+      className="break-out"
       style={{
         position: 'relative',
-        minHeight: '100vh',
+        minHeight: 'calc(100vh - 90px)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
@@ -129,8 +130,8 @@ export default function HeroSection() {
       <div style={{ position: 'absolute', inset: 0 }} className="bg-radial" />
 
       <div
-        className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12"
-        style={{ position: 'relative', zIndex: 10, width: '100%', paddingTop: '6rem', paddingBottom: '6rem' }}
+        className="px-5 sm:px-8 lg:px-12"
+        style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1200px', margin: '0 auto', paddingTop: '3rem', paddingBottom: '3rem' }}
       >
         <div
           style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}

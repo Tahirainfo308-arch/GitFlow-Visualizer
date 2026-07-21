@@ -51,8 +51,8 @@ const team = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      <section className="py-20 sm:py-[100px] lg:py-[120px] bg-grid bg-radial relative">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+      <section className="py-8 lg:py-12 bg-grid bg-radial relative">
+        <div className="px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function AboutPage() {
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="px-5 sm:px-8 lg:px-12">
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
             variants={staggerContainer}

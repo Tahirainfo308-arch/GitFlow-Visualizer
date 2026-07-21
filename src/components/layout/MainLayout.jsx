@@ -10,7 +10,18 @@ export default function MainLayout() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
-      <main style={{ flex: 1 }}>
+      <main
+        style={{
+          marginTop: '90px',
+          maxWidth: '1200px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          width: '100%',
+          boxSizing: 'border-box',
+          padding: '0 20px',
+          flex: 1,
+        }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
