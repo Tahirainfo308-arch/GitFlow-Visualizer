@@ -15,8 +15,8 @@ export default class ErrorBoundary extends Component {
       return (
         <div style={{
           minHeight: '100vh',
-          background: '#0D1117',
-          color: '#F0F6FC',
+          background: 'var(--c-bg, #0D1117)',
+          color: 'var(--c-text, #F0F6FC)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -26,35 +26,35 @@ export default class ErrorBoundary extends Component {
           <div style={{
             maxWidth: '700px',
             width: '100%',
-            background: '#161B22',
-            border: '1px solid #30363D',
+            background: 'var(--c-card, #161B22)',
+            border: '1px solid var(--c-border, #30363D)',
             borderRadius: '12px',
             padding: '32px',
           }}>
-            <h1 style={{ color: '#F85149', fontSize: '20px', marginBottom: '16px' }}>
+            <h1 style={{ color: 'var(--c-red, #F85149)', fontSize: '20px', marginBottom: '16px' }}>
               Something went wrong
             </h1>
             <pre style={{
-              background: '#0D1117',
-              border: '1px solid #30363D',
+              background: 'var(--c-bg, #0D1117)',
+              border: '1px solid var(--c-border, #30363D)',
               borderRadius: '8px',
               padding: '16px',
               overflow: 'auto',
               fontSize: '13px',
-              color: '#F85149',
+              color: 'var(--c-red, #F85149)',
               whiteSpace: 'pre-wrap',
               wordBreak: 'break-word',
             }}>
               {this.state.error?.message}
             </pre>
             <pre style={{
-              background: '#0D1117',
-              border: '1px solid #30363D',
+              background: 'var(--c-bg, #0D1117)',
+              border: '1px solid var(--c-border, #30363D)',
               borderRadius: '8px',
               padding: '16px',
               overflow: 'auto',
               fontSize: '12px',
-              color: '#8B949E',
+              color: 'var(--c-muted, #8B949E)',
               marginTop: '12px',
               whiteSpace: 'pre-wrap',
               wordBreak: 'break-word',

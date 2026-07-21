@@ -55,7 +55,7 @@ export function MiniBarChart({ data, width = 200, height = 60, color = '#58A6FF'
                 x={i * (barWidth + 4) + 2 + barWidth / 2}
                 y={height + 14}
                 textAnchor="middle"
-                fill="#8B949E"
+                fill="var(--c-muted, #8B949E)"
                 fontSize="9"
                 fontFamily="'JetBrains Mono', monospace"
               >
@@ -82,7 +82,7 @@ export function RadialProgress({ percentage, size = 80, strokeWidth = 6, color =
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#30363D"
+          stroke="var(--c-border, #30363D)"
           strokeWidth={strokeWidth}
         />
         <motion.circle
@@ -192,7 +192,7 @@ export function HeatMap({ data, weeks = 12 }) {
                 style={{
                   width: cellSize,
                   height: cellSize,
-                  backgroundColor: value > 0 ? '#3FB950' : '#30363D',
+                  backgroundColor: value > 0 ? 'var(--c-green, #3FB950)' : 'var(--c-border, #30363D)',
                   opacity,
                 }}
                 initial={{ scale: 0 }}

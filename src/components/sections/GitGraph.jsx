@@ -200,7 +200,7 @@ export default function GitGraph({ graph, onNodeClick }) {
                       cx={node.x}
                       cy={node.y}
                       r={r}
-                      fill={isHovered ? node.branchColor : '#161B22'}
+                      fill={isHovered ? node.branchColor : 'var(--c-card, #161B22)'}
                       stroke={node.branchColor}
                       strokeWidth={isHovered ? 3 : 2.5}
                       style={{
@@ -229,7 +229,7 @@ export default function GitGraph({ graph, onNodeClick }) {
                     <text
                       x={node.x + r + 10}
                       y={node.y + 4}
-                      fill="#8B949E"
+                      fill="var(--c-muted, #8B949E)"
                       fontSize="10"
                       fontFamily="'JetBrains Mono', monospace"
                     >
@@ -239,7 +239,7 @@ export default function GitGraph({ graph, onNodeClick }) {
                     <text
                       x={node.x + r + 56}
                       y={node.y + 4}
-                      fill="#8B949E"
+                      fill="var(--c-muted, #8B949E)"
                       fontSize="10"
                       fontFamily="'Inter', sans-serif"
                       style={{ maxWidth: '200px' }}
@@ -282,16 +282,16 @@ export default function GitGraph({ graph, onNodeClick }) {
                           width={44}
                           height={20}
                           rx={10}
-                          fill="#F85149"
+                          fill="var(--c-red, #F85149)"
                           fillOpacity="0.15"
-                          stroke="#F85149"
+                          stroke="var(--c-red, #F85149)"
                           strokeWidth="1"
                           strokeOpacity="0.4"
                         />
                         <text
                           x={node.x + r + (node.message.length > 30 ? 264 : node.message.length * 6.5 + 74)}
                           y={node.y + 4}
-                          fill="#F85149"
+                          fill="var(--c-red, #F85149)"
                           fontSize="10"
                           fontWeight="600"
                           fontFamily="'Inter', sans-serif"
@@ -315,8 +315,8 @@ export default function GitGraph({ graph, onNodeClick }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.15 }}
-            className="absolute pointer-events-none z-50 px-3 py-2 rounded-lg bg-card border border-border shadow-xl text-xs"
-            style={{ left: tooltip.x, top: tooltip.y }}
+            className="absolute pointer-events-none z-50 px-3 py-2 rounded-lg border shadow-xl text-xs"
+            style={{ left: tooltip.x, top: tooltip.y, backgroundColor: 'var(--c-card)', borderColor: 'var(--c-border)' }}
           >
             <div className="flex items-center gap-2 mb-1">
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: tooltip.node.branchColor }} />

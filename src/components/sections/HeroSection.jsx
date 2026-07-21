@@ -21,7 +21,7 @@ function GitGraphSVG() {
 
       {Array.from({ length: 8 }).map((_, row) =>
         Array.from({ length: 10 }).map((_, col) => (
-          <circle key={`${row}-${col}`} cx={40 + col * 50} cy={30 + row * 52} r="1" fill="#30363D" opacity="0.5" />
+          <circle key={`${row}-${col}`} cx={40 + col * 50} cy={30 + row * 52} r="1" fill="var(--c-border, #30363D)" opacity="0.5" />
         ))
       )}
 
@@ -31,21 +31,21 @@ function GitGraphSVG() {
 
       {[{ cx: 100, cy: 60, color: '#58A6FF', delay: 0.3 }, { cx: 100, cy: 120, color: '#58A6FF', delay: 0.5 }, { cx: 100, cy: 190, color: '#58A6FF', delay: 0.7 }, { cx: 100, cy: 280, color: '#58A6FF', delay: 1.2 }, { cx: 100, cy: 350, color: '#58A6FF', delay: 1.6 }].map((c, i) => (
         <g key={`m-${i}`} filter="url(#glow)">
-          <motion.circle cx={c.cx} cy={c.cy} r="8" fill="#0D1117" stroke={c.color} strokeWidth="2.5" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, delay: c.delay, type: 'spring', stiffness: 200 }} />
+          <motion.circle cx={c.cx} cy={c.cy} r="8" fill="var(--c-card, #0D1117)" stroke={c.color} strokeWidth="2.5" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, delay: c.delay, type: 'spring', stiffness: 200 }} />
           <motion.circle cx={c.cx} cy={c.cy} r="3" fill={c.color} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.3, delay: c.delay + 0.2 }} />
         </g>
       ))}
 
       {[{ cx: 240, cy: 140, color: '#3FB950', delay: 1.0 }, { cx: 240, cy: 200, color: '#3FB950', delay: 1.3 }, { cx: 240, cy: 260, color: '#3FB950', delay: 1.5 }].map((c, i) => (
         <g key={`f-${i}`} filter="url(#glow)">
-          <motion.circle cx={c.cx} cy={c.cy} r="7" fill="#0D1117" stroke={c.color} strokeWidth="2" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, delay: c.delay, type: 'spring', stiffness: 200 }} />
+          <motion.circle cx={c.cx} cy={c.cy} r="7" fill="var(--c-card, #0D1117)" stroke={c.color} strokeWidth="2" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, delay: c.delay, type: 'spring', stiffness: 200 }} />
           <motion.circle cx={c.cx} cy={c.cy} r="2.5" fill={c.color} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.3, delay: c.delay + 0.15 }} />
         </g>
       ))}
 
       {[{ cx: 380, cy: 240, color: '#F1502F', delay: 1.8 }, { cx: 380, cy: 340, color: '#F1502F', delay: 2.0 }].map((c, i) => (
         <g key={`h-${i}`} filter="url(#glow)">
-          <motion.circle cx={c.cx} cy={c.cy} r="6" fill="#0D1117" stroke={c.color} strokeWidth="2" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, delay: c.delay, type: 'spring', stiffness: 200 }} />
+          <motion.circle cx={c.cx} cy={c.cy} r="6" fill="var(--c-card, #0D1117)" stroke={c.color} strokeWidth="2" initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.4, delay: c.delay, type: 'spring', stiffness: 200 }} />
           <motion.circle cx={c.cx} cy={c.cy} r="2" fill={c.color} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.3, delay: c.delay + 0.15 }} />
         </g>
       ))}

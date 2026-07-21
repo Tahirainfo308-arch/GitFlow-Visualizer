@@ -146,8 +146,8 @@ export default function QuizPage() {
   if (selectedQuiz && question) {
     return (
       <div className="min-h-screen">
-        <section className="py-20 lg:py-28 bg-grid bg-radial relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 sm:py-[100px] lg:py-[120px] bg-grid bg-radial relative">
+          <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
               <button onClick={handleBack} className="text-sm text-muted hover:text-text mb-4 flex items-center gap-1">
                 Back to quizzes
@@ -160,8 +160,8 @@ export default function QuizPage() {
           </div>
         </section>
 
-        <section className="py-16 lg:py-24">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 lg:py-20">
+          <div className="max-w-2xl mx-auto px-5 sm:px-8 lg:px-12">
             <div className="mb-8">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-muted">Question {current + 1} of {selectedQuiz.questions.length}</span>
@@ -238,8 +238,8 @@ export default function QuizPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="py-20 lg:py-28 bg-grid bg-radial relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 sm:py-[100px] lg:py-[120px] bg-grid bg-radial relative">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
             <Badge color="purple" dot>Quiz</Badge>
             <h1 className="font-poppins text-4xl sm:text-5xl font-bold mt-4 mb-4">
@@ -250,8 +250,8 @@ export default function QuizPage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-20">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div className="grid grid-cols-1 gap-4" variants={staggerContainer} initial="hidden" animate="visible">
             {quizzes.map((quiz) => {
               const prevScore = progress.quizScores[quiz.id]
