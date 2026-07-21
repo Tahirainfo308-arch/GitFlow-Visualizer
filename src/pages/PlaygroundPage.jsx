@@ -71,7 +71,7 @@ export default function PlaygroundPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="py-6 lg:py-8 bg-grid bg-radial border-b border-border">
+      <section className="pt-[88px] pb-6 lg:pb-8 bg-grid bg-radial border-b border-border">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

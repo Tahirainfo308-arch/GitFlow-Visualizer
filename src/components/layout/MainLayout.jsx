@@ -8,9 +8,9 @@ export default function MainLayout() {
   const location = useLocation()
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
-      <main className="flex-1 pt-[72px]">
+      <main style={{ flex: 1 }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
