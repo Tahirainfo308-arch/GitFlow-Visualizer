@@ -53,10 +53,9 @@ export default function FAQSection() {
   return (
     <section
       className="bg-surface/50"
-      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem', width: '100%' }}
     >
       <div
-        className="px-6"
         style={{ maxWidth: '680px', margin: '0 auto' }}
       >
         <motion.div

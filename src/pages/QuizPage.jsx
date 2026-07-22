@@ -147,7 +147,6 @@ export default function QuizPage() {
     return (
       <div className="min-h-screen">
         <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-          <div className="px-6">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
               <button onClick={handleBack} className="text-sm text-muted hover:text-text mb-4 flex items-center gap-1">
                 Back to quizzes
@@ -157,7 +156,6 @@ export default function QuizPage() {
                 Git <span className="gradient-text">Knowledge Check</span>
               </h1>
             </motion.div>
-          </div>
         </section>
 
         <section className="py-16 lg:py-20">
@@ -239,7 +237,6 @@ export default function QuizPage() {
   return (
     <div className="min-h-screen">
       <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-        <div className="px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
             <Badge color="purple" dot>Quiz</Badge>
             <h1 className="font-poppins text-4xl sm:text-5xl font-bold mt-4 mb-4">
@@ -247,7 +244,6 @@ export default function QuizPage() {
             </h1>
             <p className="text-muted text-lg">Test your understanding. Earn XP for every correct answer.</p>
           </motion.div>
-        </div>
       </section>
 
       <section className="py-8 lg:py-20">

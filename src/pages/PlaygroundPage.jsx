@@ -72,7 +72,6 @@ export default function PlaygroundPage() {
   return (
     <div className="min-h-screen">
       <section className="pt-2 pb-6 lg:pb-8 bg-grid bg-radial border-b border-border">
-        <div className="px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,7 +103,6 @@ export default function PlaygroundPage() {
               </Button>
             </div>
           </motion.div>
-        </div>
       </section>
 
       <section className="h-[calc(100vh-180px)]">

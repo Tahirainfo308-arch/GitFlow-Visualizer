@@ -12,10 +12,9 @@ export default function HowItWorksSection() {
   return (
     <section
       className="bg-surface/50"
-      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem', width: '100%' }}
     >
-      <div className="px-6">
-        <motion.div
+      <motion.div
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -101,7 +100,6 @@ export default function HowItWorksSection() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
     </section>
   )
 }

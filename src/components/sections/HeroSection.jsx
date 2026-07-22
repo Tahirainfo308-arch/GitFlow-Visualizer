@@ -130,7 +130,6 @@ export default function HeroSection() {
       <div style={{ position: 'absolute', inset: 0 }} className="bg-radial" />
 
       <div
-        className="px-6"
         style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1400px', margin: '0 auto', paddingTop: '3rem', paddingBottom: '3rem' }}
       >
         <div

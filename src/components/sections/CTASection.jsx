@@ -6,10 +6,9 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem', width: '100%' }}
     >
-      <div className="px-6">
-        <motion.div
+      <motion.div
           style={{
             position: 'relative',
             borderRadius: 'clamp(20px, 3vw, 32px)',
@@ -55,7 +54,6 @@ export default function CTASection() {
             </div>
           </div>
         </motion.div>
-      </div>
     </section>
   )
 }

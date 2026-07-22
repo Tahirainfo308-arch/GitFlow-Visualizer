@@ -87,7 +87,6 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen">
       <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-        <div className="px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Badge color="blue" dot>Dashboard</Badge>
             <h1 className="font-poppins text-4xl sm:text-5xl font-bold mt-4 mb-4">
@@ -98,11 +97,9 @@ export default function DashboardPage() {
               <XPBar xp={progress.xp} level={progress.level} size="lg" />
             </div>
           </motion.div>
-        </div>
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="px-6">
           <motion.div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10" variants={staggerContainer} initial="hidden" animate="visible">
             {stats.map((stat) => (
               <motion.div key={stat.label} variants={staggerItem}>
@@ -214,7 +211,6 @@ export default function DashboardPage() {
               Reset All Progress
             </Button>
           </div>
-        </div>
       </section>
     </div>
   )

@@ -212,13 +212,9 @@ header, nav {
   left: auto !important;
 }
 
-/* 3. Center the main page wrapper */
-body > div, main {
-  max-width: 1400px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* 3. Ensure root div and main are full-width (container is on <main> in MainLayout) */
+body > div {
   width: 100% !important;
-  box-sizing: border-box !important;
 }
 
 /* 4. Fix card grid overlapping */

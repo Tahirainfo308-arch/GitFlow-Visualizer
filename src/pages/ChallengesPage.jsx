@@ -54,7 +54,6 @@ export default function ChallengesPage() {
   return (
     <div className="min-h-screen">
       <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-        <div className="px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
             <Badge color="orange" dot>Challenges</Badge>
             <h1 className="font-poppins text-4xl sm:text-5xl font-bold mt-4 mb-4">
@@ -64,11 +63,9 @@ export default function ChallengesPage() {
               Real-world Git scenarios. Complete them to earn XP and badges.
             </p>
           </motion.div>
-        </div>
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {challenges.map((challenge) => {
               const isCompleted = progress.completedChallenges.includes(challenge.id)
@@ -104,7 +101,6 @@ export default function ChallengesPage() {
               )
             })}
           </div>
-        </div>
       </section>
 
       <Modal

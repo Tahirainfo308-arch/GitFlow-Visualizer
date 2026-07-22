@@ -31,8 +31,8 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <footer className="border-t border-border" style={{ width: '100%' }}>
+      <div className="max-w-[1400px] mx-auto" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 py-12 sm:py-16">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2.5 mb-5">

@@ -52,7 +52,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-        <div className="px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,11 +69,9 @@ export default function AboutPage() {
               out to create the learning platform we always wished existed.
             </p>
           </motion.div>
-        </div>
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="px-6">
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
             variants={staggerContainer}
@@ -126,7 +123,6 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </motion.div>
-        </div>
       </section>
 
       <CTASection />

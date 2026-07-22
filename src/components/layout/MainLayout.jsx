@@ -12,14 +12,13 @@ export default function MainLayout() {
       <Navbar />
       <main
         style={{
-          paddingTop: '96px',
-          maxWidth: '1400px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
           width: '100%',
-          boxSizing: 'border-box',
+          maxWidth: '1400px',
+          margin: '0 auto',
           paddingLeft: '2rem',
           paddingRight: '2rem',
+          boxSizing: 'border-box',
+          paddingTop: '96px',
           flex: 1,
         }}
       >
