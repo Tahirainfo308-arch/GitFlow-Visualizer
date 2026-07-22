@@ -21,7 +21,10 @@ const features = [
 function FeatureCard({ feature }) {
   return (
     <motion.div variants={staggerItem}>
-      <div className={`group relative h-full p-7 sm:p-8 rounded-3xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${feature.glowClass} ${feature.borderHover}`}>
+      <div
+        className={`group relative h-full rounded-3xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${feature.glowClass} ${feature.borderHover}`}
+        style={{ padding: '1.75rem' }}
+      >
         <div className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl ${feature.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
           <feature.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${feature.color}`} />
         </div>
@@ -36,18 +39,16 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="py-20 sm:py-[100px] lg:py-[120px]"
-      style={{ position: 'relative', overflow: 'hidden' }}
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
       <div className="px-5 sm:px-8 lg:px-12">
-        {/* Section header: Badge, then Heading, then Description — stacked vertically, centered */}
         <motion.div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            marginBottom: 'clamp(3rem, 4vw, 4rem)',
+            marginBottom: '3rem',
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +65,8 @@ export default function FeaturesSection() {
               color: 'var(--c-primary)',
               fontSize: '13px',
               fontWeight: 500,
-              marginBottom: '1.25rem',
+              marginBottom: '1rem',
+              marginTop: '2rem',
             }}
           >
             Features
@@ -97,7 +99,7 @@ export default function FeaturesSection() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(1, 1fr)',
-            gap: 'clamp(1.5rem, 2vw, 2rem)',
+            gap: '1.75rem',
           }}
           className="sm:!grid-cols-2 lg:!grid-cols-3"
           variants={staggerContainer}

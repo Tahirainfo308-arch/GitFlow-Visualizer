@@ -74,8 +74,8 @@ export default function Navbar() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
-                padding: '6px 14px',
+                gap: '5px',
+                padding: '6px 20px',
                 borderRadius: '9999px',
                 backgroundColor: 'var(--c-surface)',
                 border: '1px solid var(--c-border)',
@@ -108,7 +108,7 @@ export default function Navbar() {
             </div>
 
             {/* GROUP 3: Theme toggle + Auth buttons */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleTheme}
@@ -140,7 +140,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </motion.button>
 
-              <div className="hidden sm:flex" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div className="hidden sm:flex" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <Button variant="ghost" size="sm" href="/login">Login</Button>
                 <Button variant="primary" size="sm" href="/register">Get Started</Button>
               </div>

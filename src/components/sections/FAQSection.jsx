@@ -52,21 +52,20 @@ function FAQItem({ faq }) {
 export default function FAQSection() {
   return (
     <section
-      className="py-20 sm:py-[100px] lg:py-[120px] bg-surface/50"
-      style={{ position: 'relative', overflow: 'hidden' }}
+      className="bg-surface/50"
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
       <div
         className="px-5 sm:px-8"
         style={{ maxWidth: '680px', margin: '0 auto' }}
       >
-        {/* Section header */}
         <motion.div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            marginBottom: 'clamp(3rem, 4vw, 4rem)',
+            marginBottom: '3rem',
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +82,8 @@ export default function FAQSection() {
               color: 'var(--c-primary)',
               fontSize: '13px',
               fontWeight: 500,
-              marginBottom: '1.25rem',
+              marginBottom: '1rem',
+              marginTop: '2rem',
             }}
           >
             FAQ

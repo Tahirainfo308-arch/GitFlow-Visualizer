@@ -14,18 +14,16 @@ const testimonials = [
 export default function TestimonialsSection() {
   return (
     <section
-      className="py-20 sm:py-[100px] lg:py-[120px]"
-      style={{ position: 'relative', overflow: 'hidden' }}
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
       <div className="px-5 sm:px-8 lg:px-12">
-        {/* Section header */}
         <motion.div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            marginBottom: 'clamp(3rem, 4vw, 4rem)',
+            marginBottom: '3rem',
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +40,8 @@ export default function TestimonialsSection() {
               color: 'var(--c-orange)',
               fontSize: '13px',
               fontWeight: 500,
-              marginBottom: '1.25rem',
+              marginBottom: '1rem',
+              marginTop: '2rem',
             }}
           >
             Testimonials
@@ -71,12 +70,11 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials grid: proper auto-fit grid */}
         <motion.div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(1, 1fr)',
-            gap: 'clamp(1.5rem, 2vw, 2rem)',
+            gap: '1.75rem',
           }}
           className="sm:!grid-cols-2 lg:!grid-cols-3"
           variants={staggerContainer}
@@ -86,7 +84,10 @@ export default function TestimonialsSection() {
         >
           {testimonials.map((t) => (
             <motion.div key={t.name} variants={staggerItem}>
-              <div className="h-full p-6 sm:p-7 rounded-3xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div
+                className="h-full rounded-3xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                style={{ padding: '1.75rem' }}
+              >
                 <div className="flex items-center gap-1 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <HiStar key={i} className="w-4 h-4 text-yellow-500" />

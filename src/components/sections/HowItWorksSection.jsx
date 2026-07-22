@@ -11,18 +11,17 @@ const steps = [
 export default function HowItWorksSection() {
   return (
     <section
-      className="py-20 sm:py-[100px] lg:py-[120px] bg-surface/50"
-      style={{ position: 'relative', overflow: 'hidden' }}
+      className="bg-surface/50"
+      style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
       <div className="px-5 sm:px-8 lg:px-12">
-        {/* Section header */}
         <motion.div
           style={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            marginBottom: 'clamp(3rem, 4vw, 4rem)',
+            marginBottom: '3rem',
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +38,8 @@ export default function HowItWorksSection() {
               color: 'var(--c-green)',
               fontSize: '13px',
               fontWeight: 500,
-              marginBottom: '1.25rem',
+              marginBottom: '1rem',
+              marginTop: '2rem',
             }}
           >
             How It Works
@@ -72,7 +72,7 @@ export default function HowItWorksSection() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(1, 1fr)',
-            gap: 'clamp(1.5rem, 2vw, 2rem)',
+            gap: '1.75rem',
           }}
           className="md:!grid-cols-3"
           variants={staggerContainer}
@@ -82,7 +82,10 @@ export default function HowItWorksSection() {
         >
           {steps.map((step, index) => (
             <motion.div key={step.title} variants={staggerItem}>
-              <div className={`relative h-full p-7 sm:p-8 rounded-3xl border ${step.border} ${step.bg}`}>
+              <div
+                className={`relative h-full rounded-3xl border ${step.border} ${step.bg}`}
+                style={{ padding: '1.75rem' }}
+              >
                 <div className="flex items-center gap-4 mb-6 sm:mb-8">
                   <span className={`font-mono text-[48px] sm:text-[56px] font-extrabold ${step.color} opacity-10 leading-none`}>{step.number}</span>
                   <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl ${step.iconBg} flex items-center justify-center`}>

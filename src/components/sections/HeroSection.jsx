@@ -134,8 +134,8 @@ export default function HeroSection() {
         style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1200px', margin: '0 auto', paddingTop: '3rem', paddingBottom: '3rem' }}
       >
         <div
-          style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}
-          className="lg:!grid-cols-2"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem' }}
+          className="flex-col lg:!flex-row"
         >
           {/* LEFT: Text */}
           <motion.div
@@ -205,7 +205,7 @@ export default function HeroSection() {
               </Button>
             </motion.div>
 
-            <motion.div variants={staggerItem} className="flex items-center gap-8 sm:gap-10">
+            <motion.div variants={staggerItem} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '2rem' }}>
               <StatItem value="16+" label="Lessons" />
               <div style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
               <StatItem value="8" label="Challenges" />
