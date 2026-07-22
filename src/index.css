@@ -198,31 +198,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== FORCE LAYOUT FIXES ===== */
 
-/* 1. Ensure navbar stays on top (kept as fixed — position:relative would destroy sticky nav) */
+/* 1. Ensure navbar stays on top */
 header, nav {
   z-index: 100 !important;
 }
 
-/* 2. Fix all badges overlapping headings */
-[class*="badge"], .badge, .pill, span[class*="Learning"] {
-  position: static !important;
-  display: inline-block !important;
-  margin-bottom: 8px !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-/* 3. Ensure root div and main are full-width (container is on <main> in MainLayout) */
+/* 2. Ensure root div is full-width (container is on <main> in MainLayout) */
 body > div {
   width: 100% !important;
 }
 
-/* 4. Fix card grid overlapping */
-.grid, [class*="grid"], [class*="card"] {
-  position: relative !important;
-}
-
-/* 5. Allow hero sections to break out of the 1400px main wrapper */
+/* 3. Allow hero sections to break out of the 1400px main wrapper */
 .break-out {
   width: 100vw;
   position: relative;

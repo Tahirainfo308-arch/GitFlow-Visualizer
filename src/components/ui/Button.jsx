@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const variants = {
   primary:
-    'bg-[image:var(--btn-gradient)] text-white shadow-md hover:shadow-xl hover:shadow-primary/20',
+    'bg-[image:var(--btn-gradient)] text-white shadow-md hover:shadow-lg hover:shadow-primary/25',
   secondary:
     'bg-card border border-border text-text hover:bg-card-hover hover:border-muted shadow-sm',
   ghost:
@@ -16,10 +16,10 @@ const variants = {
 }
 
 const sizes = {
-  sm: 'px-4 py-2 text-[13px] rounded-lg gap-1.5',
-  md: 'px-5 py-2.5 text-[14px] rounded-xl gap-2',
-  lg: 'px-7 py-3.5 text-[16px] font-semibold rounded-xl gap-2.5',
-  xl: 'px-9 py-4 text-[17px] font-semibold rounded-xl gap-2.5',
+  sm: 'h-[34px] px-3 text-[13px] rounded-lg gap-1.5',
+  md: 'h-[42px] px-5 text-[14px] rounded-lg gap-2',
+  lg: 'h-[48px] px-7 text-[16px] rounded-lg gap-2.5',
+  xl: 'h-[56px] px-9 text-[17px] rounded-lg gap-2.5',
 }
 
 export default function Button({
@@ -56,9 +56,9 @@ export default function Button({
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
         </svg>
       )}
-      {!loading && Icon && <Icon className="w-[16px] h-[16px]" />}
+      {!loading && Icon && <Icon className="w-[16px] h-[16px] shrink-0" />}
       {children}
-      {typeof IconRight === 'function' && <IconRight className="w-[16px] h-[16px]" />}
+      {typeof IconRight === 'function' && <IconRight className="w-[16px] h-[16px] shrink-0" />}
     </>
   )
 
