@@ -73,7 +73,8 @@ export default function AboutPage() {
 
       <section className="py-16 lg:py-20">
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            style={{ marginBottom: '4rem' }}
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -94,7 +95,7 @@ export default function AboutPage() {
             ))}
           </motion.div>
 
-          <div className="text-center mb-12">
+          <div className="text-center" style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>
             <h2 className="font-poppins text-3xl sm:text-4xl font-bold mb-4">
               Meet the team
             </h2>
@@ -105,7 +106,8 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
+            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', width: '100%', marginTop: '1.5rem' }}
+            className="max-w-3xl mx-auto"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
