@@ -39,7 +39,6 @@ export default function Button({
   const classes = [
     'inline-flex items-center justify-center font-semibold cursor-pointer select-none whitespace-nowrap',
     'transition-all duration-200 ease-out',
-    'focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2 focus:ring-offset-bg',
     disabled && 'opacity-50 cursor-not-allowed',
     loading && 'pointer-events-none',
     variants[variant],

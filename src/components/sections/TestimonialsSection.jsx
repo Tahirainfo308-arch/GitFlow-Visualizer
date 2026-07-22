@@ -16,7 +16,7 @@ export default function TestimonialsSection() {
     <section
       style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
-      <div className="px-5 sm:px-8 lg:px-12">
+      <div className="px-6">
         <motion.div
           style={{
             display: 'flex',
@@ -73,8 +73,8 @@ export default function TestimonialsSection() {
         <motion.div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(1, 1fr)',
-            gap: '1.75rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '2rem',
           }}
           className="sm:!grid-cols-2 lg:!grid-cols-3"
           variants={staggerContainer}

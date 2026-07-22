@@ -51,7 +51,7 @@ export default function LeaderboardPage() {
   return (
     <div className="min-h-screen">
       <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-        <div className="px-5 sm:px-8 lg:px-12">
+        <div className="px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
             <Badge color="yellow" dot>Leaderboard</Badge>
             <h1 className="font-poppins text-4xl sm:text-5xl font-bold mt-4 mb-4">
@@ -65,7 +65,7 @@ export default function LeaderboardPage() {
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="max-w-3xl mx-auto px-6">
           {myRank > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}

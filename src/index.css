@@ -214,7 +214,7 @@ header, nav {
 
 /* 3. Center the main page wrapper */
 body > div, main {
-  max-width: 1200px !important;
+  max-width: 1400px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   width: 100% !important;
@@ -226,7 +226,7 @@ body > div, main {
   position: relative !important;
 }
 
-/* 5. Allow hero sections to break out of the 1200px main wrapper */
+/* 5. Allow hero sections to break out of the 1400px main wrapper */
 .break-out {
   width: 100vw;
   position: relative;

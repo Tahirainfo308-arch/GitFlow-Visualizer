@@ -56,7 +56,7 @@ export default function FAQSection() {
       style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
       <div
-        className="px-5 sm:px-8"
+        className="px-6"
         style={{ maxWidth: '680px', margin: '0 auto' }}
       >
         <motion.div

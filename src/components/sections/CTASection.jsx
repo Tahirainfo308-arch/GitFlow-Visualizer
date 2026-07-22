@@ -8,7 +8,7 @@ export default function CTASection() {
       id="cta"
       style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem' }}
     >
-      <div className="px-5 sm:px-8 lg:px-12">
+      <div className="px-6">
         <motion.div
           style={{
             position: 'relative',

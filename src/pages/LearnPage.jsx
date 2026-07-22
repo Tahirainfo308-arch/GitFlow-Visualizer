@@ -158,7 +158,7 @@ export default function LearnPage() {
   return (
     <div className="min-h-screen">
       <section className="py-8 lg:py-12 bg-grid bg-radial relative">
-        <div className="px-5 sm:px-8 lg:px-12">
+        <div className="px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,7 +181,7 @@ export default function LearnPage() {
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="px-5 sm:px-8 lg:px-12">
+        <div className="px-6">
           <motion.div
             className="space-y-8"
             variants={staggerContainer}
