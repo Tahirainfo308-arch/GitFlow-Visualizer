@@ -217,3 +217,19 @@ body > div {
   margin-left: calc(-50vw);
   margin-right: calc(-50vw);
 }
+
+/* 4. Force primary button solid color — no gradient overlays */
+a[href], button {
+  background-image: none !important;
+}
+
+/* 5. Force CTA container width */
+#cta {
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  box-sizing: border-box !important;
+}

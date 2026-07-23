@@ -1,18 +1,36 @@
 import { motion } from 'framer-motion'
 
-const variants = {
-  primary:
-    'bg-[image:var(--btn-gradient)] text-white shadow-md hover:shadow-lg hover:shadow-primary/25',
-  secondary:
-    'bg-transparent border border-border text-text hover:bg-surface hover:border-muted shadow-sm',
-  ghost:
-    'bg-transparent text-muted hover:text-text hover:bg-surface',
-  danger:
-    'bg-transparent text-red border border-red/20 hover:bg-red/10 shadow-sm',
-  success:
-    'bg-transparent text-green border border-green/20 hover:bg-green/10 shadow-sm',
-  outline:
-    'bg-transparent border border-border text-text hover:bg-card hover:border-primary hover:text-primary',
+const variantStyles = {
+  primary: {
+    backgroundColor: '#0284c7',
+    color: '#ffffff',
+    border: 'none',
+  },
+  secondary: {
+    backgroundColor: '#ffffff',
+    color: '#0f172a',
+    border: '1px solid #cbd5e1',
+  },
+  ghost: {
+    backgroundColor: 'transparent',
+    color: 'var(--c-muted)',
+    border: 'none',
+  },
+  danger: {
+    backgroundColor: 'transparent',
+    color: 'var(--c-red)',
+    border: '1px solid var(--c-red, #cf222e)',
+  },
+  success: {
+    backgroundColor: 'transparent',
+    color: 'var(--c-green)',
+    border: '1px solid var(--c-green, #1a7f37)',
+  },
+  outline: {
+    backgroundColor: 'transparent',
+    color: 'var(--c-text)',
+    border: '1px solid var(--c-border)',
+  },
 }
 
 const sizes = {
@@ -41,12 +59,18 @@ export default function Button({
     'transition-all duration-200 ease-out',
     disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
     loading && 'pointer-events-none',
-    variants[variant],
     sizes[size],
     className,
   ]
     .filter(Boolean)
     .join(' ')
+
+  const style = {
+    ...variantStyles[variant],
+    borderRadius: '0.5rem',
+    overflow: 'hidden',
+    textDecoration: 'none',
+  }
 
   const content = (
     <>
@@ -67,7 +91,7 @@ export default function Button({
       <motion.a
         href={href}
         className={classes}
-        style={{ textDecoration: 'none' }}
+        style={style}
         whileHover={disabled ? {} : { scale: 1.02 }}
         whileTap={disabled ? {} : { scale: 0.97 }}
         transition={{ duration: 0.15 }}
@@ -82,6 +106,7 @@ export default function Button({
     <motion.button
       type={type}
       className={classes}
+      style={style}
       onClick={onClick}
       disabled={disabled || loading}
       whileHover={disabled ? {} : { scale: 1.02 }}
