@@ -8,7 +8,8 @@ export default function CTASection() {
       id="cta"
       style={{ position: 'relative', overflow: 'hidden', paddingTop: '5rem', paddingBottom: '5rem', width: '100%' }}
     >
-      <motion.div
+      <div style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
+        <motion.div
           style={{
             position: 'relative',
             borderRadius: 'clamp(20px, 3vw, 32px)',
@@ -48,12 +49,13 @@ export default function CTASection() {
             >
               Join thousands of developers learning Git the smart way. Start today — it&apos;s free.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }} className="flex-col sm:!flex-row">
               <Button variant="primary" size="lg" href="/register" iconRight={HiOutlineArrowRight}>Get Started Free</Button>
               <Button variant="secondary" size="lg" href="/learn">Browse Lessons</Button>
             </div>
           </div>
         </motion.div>
+      </div>
     </section>
   )
 }

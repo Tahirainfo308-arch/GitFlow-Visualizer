@@ -73,7 +73,7 @@ function TerminalPreview() {
     { prompt: '~$', cmd: 'git commit -m "add auth"', color: 'text-text' },
     { prompt: '~$', cmd: 'git checkout main', color: 'text-text' },
     { prompt: '~$', cmd: 'git merge feat/auth', color: 'text-green' },
-    { prompt: '✓', cmd: 'Merge successful — 3 commits', color: 'text-primary' },
+    { prompt: '\u2713', cmd: 'Merge successful \u2014 3 commits', color: 'text-primary' },
   ]
 
   return (
@@ -105,16 +105,14 @@ function TerminalPreview() {
   )
 }
 
-function StatItem({ value, label }) {
-  return (
-    <div className="text-center">
-      <p className="text-2xl font-extrabold tracking-tight">{value}</p>
-      <p className="text-xs text-muted mt-0.5">{label}</p>
-    </div>
-  )
-}
-
 export default function HeroSection() {
+  const stats = [
+    { value: '16+', label: 'Lessons' },
+    { value: '8', label: 'Challenges' },
+    { value: '12', label: 'Badges' },
+    { value: '100%', label: 'Free' },
+  ]
+
   return (
     <section
       className="break-out"
@@ -130,7 +128,7 @@ export default function HeroSection() {
       <div style={{ position: 'absolute', inset: 0 }} className="bg-radial" />
 
       <div
-        style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1400px', margin: '0 auto', paddingTop: '3rem', paddingBottom: '3rem' }}
+        style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1280px', margin: '0 auto', paddingTop: '3rem', paddingBottom: '3rem', paddingLeft: '2rem', paddingRight: '2rem' }}
       >
         <div
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem' }}
@@ -195,7 +193,7 @@ export default function HeroSection() {
               hands-on practice. The modern way to learn Git.
             </motion.p>
 
-            <motion.div variants={staggerItem} className="flex flex-col sm:flex-row items-start gap-4" style={{ marginBottom: '3.5rem' }}>
+            <motion.div variants={staggerItem} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem' }} className="flex-col sm:!flex-row">
               <Button variant="primary" size="lg" href="/learn" iconRight={HiOutlineArrowRight}>
                 Start Learning Free
               </Button>
@@ -204,16 +202,21 @@ export default function HeroSection() {
               </Button>
             </motion.div>
 
-            <motion.div variants={staggerItem} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '2rem' }}>
-              <StatItem value="16+" label="Lessons" />
-              <div style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
-              <StatItem value="8" label="Challenges" />
-              <div style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
-              <StatItem value="12" label="Badges" />
-              <div className="hidden sm:block" style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
-              <div className="hidden sm:block">
-                <StatItem value="100%" label="Free" />
-              </div>
+            <motion.div
+              variants={staggerItem}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: '500px', width: '100%', marginTop: '2.5rem' }}
+            >
+              {stats.map((stat, i) => (
+                <div key={stat.label} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.2 }}>{stat.value}</p>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--c-muted)', marginTop: '2px' }}>{stat.label}</p>
+                  </div>
+                  {i < stats.length - 1 && (
+                    <div style={{ width: '1px', height: '40px', backgroundColor: 'var(--c-border)' }} />
+                  )}
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
